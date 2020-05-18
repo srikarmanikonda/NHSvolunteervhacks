@@ -19,6 +19,7 @@ import * as AddCalendarEvent from 'react-native-add-calendar-event';
 import RNCalendarEvents from 'react-native-calendar-events'
 import * as Permissions from 'expo-permissions';
 import * as Calendar from 'expo-calendar';
+import { AppLoading } from 'expo';
 
 //import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 //import { createCompatNavigatorFactory } from '@react-navigation/compat';
@@ -36,7 +37,28 @@ var setit
 var checkfirst = false
 var checksecond = false
 var checkthird = false
+
+let customFonts = {
+  'font': require('./assets/Oswald-Regular.ttf'),
+  'font-bold': require('./assets/Oswald-Bold.ttf')
+};
+
 class HomeScreen extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={
+      fontsLoaded: false
+    }
+  }
+
+async _loadFontsAsync() {
+    await Font.loadAsync(customFonts);
+    this.setState({ fontsLoaded: true });
+  }
+
+  componentDidMount() {
+    this._loadFontsAsync();
+  }
 
   static navigationOptions = {
     title: 'Home',
@@ -44,6 +66,8 @@ class HomeScreen extends React.Component{
 
  render(){
    const {navigate} = this.props.navigation;
+   if (this.state.fontsLoaded){
+
  return (
  <  View style={styles.container}>
  <LinearGradient
@@ -97,6 +121,11 @@ class HomeScreen extends React.Component{
  </TouchableOpacity>
      </View>
  );
+}else {
+        return (
+          <AppLoading/>
+        )
+      }
 }
 }
 
@@ -361,10 +390,10 @@ class  DashboardScreen extends React.Component{
 </View>
 <Feather name='menu' size={33} onPress={()=> this.props.navigation.openDrawer()} style={{right:"40%",top:"-10%",color:'#fff'}}/>
 
- <Text style = {{fontSize:35,color:"#fff",fontFamily:"AppleSDGothicNeo-Bold"}}> Welcome Back {please}. There are quite a few volunteer events available for your NHS hours!</Text>
+ <Text style = {{fontSize:35,color:"#fff",fontFamily:'font'}}> Welcome Back {please}. There are quite a few volunteer events available for your NHS hours!</Text>
 
 <View style = {{bottom:"-10%"}}>
-<Text style = {{fontSize:35,color:"#fff",fontFamily:"AppleSDGothicNeo-Bold"}}>Keep Working hard! You are almost there! You are {x*5}% of the way there! </Text>
+<Text style = {{fontSize:35,color:"#fff",fontFamily:'font'}}>Keep Working hard! You are almost there! You are {x*5}% of the way there! </Text>
 </View>
 
 <Signoutbutton
@@ -654,7 +683,7 @@ console.log(setit)
   renderEmptyData() {
     return (
       <View style={styles.emptyDate}>
-        <Text style ={{fontSize:25}}>This is an empty date! Quickly swipe right to acces the navigation dashboard</Text>
+        <Text style ={{fontSize:25,fontFamily:'font'}}>This is an empty date! Quickly swipe right to acces the navigation dashboard</Text>
       </View>
     );
   }
@@ -754,7 +783,6 @@ const styles = StyleSheet.create({
  },
  intromessage:{
    fontSize:33,
-   fontFamily:'Futura',
    top:"10%",
  },
  NHSlogo:{
@@ -781,6 +809,7 @@ const styles = StyleSheet.create({
  },
  buttontext:{
  fontSize: 30,
+ fontFamily:'font',
  color: '#fff',
  alignItems:'center',
 },
@@ -789,6 +818,7 @@ signUpStyle:{
    backgroundColor:"#4169e1",
    borderRadius:25,
    height:50,
+   fontFamily:'font',
    alignItems:"center",
    justifyContent:"center",
    top:170
@@ -796,6 +826,7 @@ signUpStyle:{
 signUpStyle2:{
  width:"80%",
    backgroundColor:"silver",
+   fontFamily:'font',
    borderRadius:25,
    height:"6%",
    alignItems:"center",
@@ -806,6 +837,8 @@ signUpStyle3:{
  width:"80%",
    backgroundColor:"#4169e1",
    borderRadius:25,
+   fontFamily:'font',
+
    height:"6%",
    alignItems:"center",
    justifyContent:"center",
@@ -813,6 +846,7 @@ signUpStyle3:{
 },
 signUpStyle4:{
  width:"80%",
+ fontFamily:'font',
    backgroundColor:"silver",
    borderRadius:25,
    height:"6%",

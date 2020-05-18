@@ -8,13 +8,14 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo/vector-icons": "^10.0.0",
     "@react-native-community/masked-view": "0.1.6",
     "@react-navigation/bottom-tabs": "^5.2.7",
     "@react-navigation/compat": "^5.1.9",
     "@react-navigation/drawer": "^5.5.0",
     "@react-navigation/native": "^5.1.5",
     "@react-navigation/stack": "^5.2.10",
-    "expo": "~37.0.3",
+    "expo": "^37.0.11",
     "expo-calendar": "~8.1.0",
     "expo-firebase-app": "^2.0.0",
     "expo-google-app-auth": "^8.1.0",
@@ -41,8 +42,7 @@
     "react-native-vector-icons": "^6.6.0",
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.3.7",
-    "react-navigation-drawer": "^2.4.12",
-    "@expo/vector-icons": "^10.0.0"
+    "react-navigation-drawer": "^2.4.12"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
