@@ -1,4 +1,4 @@
-This is a volunteer mobile App I made for the NHS division for Vhacks, a hackathon held by Vernon Hills high School 
+This is a volunteer cross-platform mobile App I made for the NHS division for Vhacks, a hackathon held by Vernon Hills high School 
 
 I designed the app using Expo react-native and used Firebase Database and authentication to store and authenticate NHS users and volunteer hours.
 
