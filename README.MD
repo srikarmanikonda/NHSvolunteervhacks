@@ -7,4 +7,4 @@ I also built and customized a calendar as well to be able to allow users to view
 ##  Installing
 You can clone this repository by running `git clone https://github.com/srikarmanikonda/NHSvolunteervhacks.git`
 ##   Running
-Make sure you have the latest version of Node.js and have expo-cli installed. Run `npm install` in the foldeer where the app is located to download the neccesarry packages. Then run `expo start` to start the app.
+Make sure you have the latest version of Node.js and have expo-cli installed. Run `npm install` in the folder where the app is located to download the neccesarry packages. Then run `expo start` to start the app.
